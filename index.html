@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pogoda</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Pogoda</h1>
+      <nav class="main-nav">
+        <button id="nav-compare" class="nav-btn active">Porównywarka</button>
+        <button id="nav-single" class="nav-btn">Analiza Miasta</button>
+        <button
+          id="btn-reset"
+          class="nav-btn"
+          title="Wyczyść zapamiętane dane"
+          style="color: #ef4444; margin-left: 1rem"
+        >
+          🗑️
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <div id="view-compare" class="view-section active">
+        <section class="top-controls">
+          <city-search></city-search>
+        </section>
+
+        <section class="chart-container">
+          <div class="chart-header">
+            <div class="legend-item legend-a">
+              <div class="legend-color"></div>
+              Miasto A
+            </div>
+            <div class="legend-item legend-b">
+              <div class="legend-color"></div>
+              Miasto B
+            </div>
+          </div>
+          <sky-chart id="chart-compare"></sky-chart>
+        </section>
+
+        <weather-analysis></weather-analysis>
+      </div>
+
+      <div id="view-single" class="view-section" style="display: none">
+        <single-city-view></single-city-view>
+      </div>
+    </main>
+
+    <div id="confirm-modal" class="modal-overlay">
+      <div class="modal">
+        <h3>Wyczyść dane?</h3>
+        <p>
+          Tej operacji nie można cofnąć. Wszystkie zapisane miasta i historia
+          zostaną usunięte.
+        </p>
+        <div class="modal-actions">
+          <button id="modal-cancel" class="btn-cancel">Anuluj</button>
+          <button id="modal-confirm" class="btn-confirm">Wyczyść</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
